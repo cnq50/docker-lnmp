@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+    nginx:
+        image: nginx:1.13
+        volumes:
+           - ~/Site:/Site
+           - ~/docker-lnmp/nginx/conf/:/etc/nginx/conf.d/
+        restart: always
+        ports:
+           - 80:80
+        depends_on:
+           - php
+    php:
+       image: registry.cn-hangzhou.aliyuncs.com/web_lnmp/php:7.1.16-fpm
+       volumes:
+           - ~/Site:/Site
+    mysql:
+       image: mysql:5.7
+       volumes:
+           - ~/docker-lnmp/mysql/data:/var/lib/mysql
+       restart: always
+       environment:
+            MYSQL_ROOT_PASSWORD: 123456
+       ports:
+           - 3306:3306
+
+
+
+
