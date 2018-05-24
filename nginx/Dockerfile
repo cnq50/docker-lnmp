@@ -1,0 +1,3 @@
+FROM nginx:1.13
+WORKDIR /Site/
+EXPOSE 80
