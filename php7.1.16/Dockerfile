@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
 RUN docker-php-source extract \
     && docker-php-ext-install mysqli \
     && docker-php-ext-install pdo pdo_mysql  \
+    && docker-php-ext-install soap  \
     && docker-php-source delete
 
 RUN pecl install redis \
@@ -24,7 +25,4 @@ RUN pecl install xdebug-2.5.0 \
     &&  rm -rf /tmp/pear \
     && docker-php-ext-enable xdebug
 
-RUN pecl install soap \
-    &&  rm -rf /tmp/pear \
-    && docker-php-ext-enable soap
 CMD ["php-fpm"]
