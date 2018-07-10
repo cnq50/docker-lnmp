@@ -13,7 +13,6 @@ RUN apt-get update && apt-get install -y \
 RUN docker-php-source extract \
     && docker-php-ext-install mysqli \
     && docker-php-ext-install pdo pdo_mysql  \
-    && docker-php-ext-install soap  \
     && docker-php-source delete
 
 RUN pecl install redis \
