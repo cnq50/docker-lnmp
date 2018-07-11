@@ -2,6 +2,7 @@ FROM php:7.1.16-fpm
 
 RUN apt-get update && apt-get install -y \
         openssl \
+        libmongoc \
         libssl-dev \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
