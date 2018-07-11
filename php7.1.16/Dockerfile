@@ -1,11 +1,7 @@
 FROM php:7.1.16-fpm
 
 RUN apt-get update && apt-get install -y \
-        libmongoc \
-        libfreetype6-dev \
-        libjpeg62-turbo-dev \
-        libmcrypt-dev \
-        libpng-dev
+        libmongoc-1.0-0 \
 
 RUN docker-php-source extract \
     && docker-php-ext-install mysqli \
