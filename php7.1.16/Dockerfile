@@ -26,7 +26,6 @@ RUN pecl install mongodb \
 RUN pecl install xdebug-2.5.0 \
     &&  rm -rf /tmp/pear \
     && docker-php-ext-enable xdebug
-
 CMD ["php-fpm"]
 
 
