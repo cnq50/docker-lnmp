@@ -15,6 +15,8 @@ RUN mkdir -p /var/log/supervisor
 
 COPY supervisord.conf /etc/supervisor/supervisord.conf
 
+#设置系统时区为北京
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 
 ENTRYPOINT ["supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
