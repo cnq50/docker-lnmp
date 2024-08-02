@@ -10,10 +10,11 @@ RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # 安装supervisord
-RUN apt-get update && apt-get install -y supervisor
+RUN apt-get update && apt-get install -y supervisor && apt-get install -y cron
 RUN mkdir -p /var/log/supervisor
 
 COPY supervisord.conf /etc/supervisor/supervisord.conf
+
 
 
 ENTRYPOINT ["supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]

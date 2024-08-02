@@ -25,6 +25,11 @@ services:
        ports:
            - 3306:3306
 
-
+    tool:
+      image: registry.cn-hangzhou.aliyuncs.com/cnq/tool:latest
+      volumes:
+        - ./Site:/Site
+        - ./supervisor.d:/etc/supervisor/conf.d
+        - ./cron.d:/etc/cron.d
 
 
